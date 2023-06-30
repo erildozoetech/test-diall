@@ -1,49 +1,19 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import {
-  doc,
-  getDoc,
-  onSnapshot,
-  query,
-  collection,
-  setDoc,
-  updateDoc,
-  deleteDoc,
-  getDocs,
-} from 'firebase/firestore';
-import db from './src/services/firebase';
-import { useEffect, useState } from 'react';
+import React from 'react';
+import 'react-native-gesture-handler';
+import { NavigationContainer } from '@react-navigation/native';
+import RootNavigator from './src/navigation/Stack/routes';
+import { Provider } from 'react-redux';
+import { store } from './src/store'
 
-export default function App() {
-
-  const [data, setData] = useState<any>({});
-
-  const handleGetData = async () => {
-    const docRef = doc(db, 'test', "S8irV0Bga23XbErU2BE7");
-
-    const docSnap = await getDoc(docRef);
-
-    setData(docSnap.data());
-    console.log('docSnap', docSnap.data())
-  }
-
-  useEffect(() => {
-    handleGetData();
-  }, [])
+const App: React.FC = () => {
   return (
-    <View style={styles.container}>
-      <Text>Test getting data from firestore</Text>
-      <Text>{data?.name}</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+    <Provider store={store}>
+      <NavigationContainer>
+        <RootNavigator />
+      </NavigationContainer>
+    </Provider>
+
+  )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;

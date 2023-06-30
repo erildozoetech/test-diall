@@ -1,9 +1,8 @@
-import { initializeApp } from 'firebase/app';
-import { getAnalytics } from "firebase/analytics";
-import { getAuth } from "firebase/auth";
-import { getFirestore } from 'firebase/firestore';
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/firestore';
+import 'firebase/compat/auth';
 
-const firebaseConfig = {
+export const firebaseConfig = {
   apiKey: "AIzaSyAxE5ap4Cuw1f--zi6FtIzMDLjx4JtxAto",
   authDomain: "test-diall.firebaseapp.com",
   projectId: "test-diall",
@@ -13,7 +12,6 @@ const firebaseConfig = {
   measurementId: "G-D17P5Y90CN"
 };
 
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-export const FirebaseAuth = getAuth(app);
-export default getFirestore();
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
+}
