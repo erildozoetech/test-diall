@@ -7,8 +7,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     paddingHorizontal: '3%',
     backgroundColor: '#121212',
-    borderTopRightRadius: 25,
-    borderTopLeftRadius: 25,
     position: 'absolute',
     bottom: 0,
     width: '100%'

@@ -8,10 +8,12 @@ import logger from 'redux-logger';
 
 import authSlice from './auth/index.slice';
 import userSlice from './user/index.slice';
+import videosSlice from './videos/index.slice';
 
 const reducers = combineReducers({
   authSlice,
-  userSlice
+  userSlice,
+  videosSlice
 });
 
 

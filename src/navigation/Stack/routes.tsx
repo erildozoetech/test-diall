@@ -9,6 +9,7 @@ import { StackTypesList } from './routes.types';
 import AuthInputPhoneController from '../../modules/Auth/inputPhone/index.controller';
 import AuthInputCodeController from '../../modules/Auth/inputCode/index.controller';
 import BottomTabs from '../BottomTabs/routes'
+import VideoAnswerController from '../../modules/BottomTabs/profile/videoAnswer/index.controller';
 
 const { Navigator, Screen } = createStackNavigator<StackTypesList>();
 
@@ -36,6 +37,11 @@ const StackNavigator = () => {
       <Screen
         name="BottomTabs"
         component={BottomTabs}
+        {...optionsDefault}
+      />
+      <Screen
+        name="VideoAnswered"
+        component={VideoAnswerController}
         {...optionsDefault}
       />
     </Navigator>

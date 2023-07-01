@@ -12,7 +12,9 @@ export interface IconProps {
 
 export type IconsNameType =
   | 'arrowBack'
+  | 'arrowWhite'
   | 'home'
   | 'loginText'
   | 'logoDiall'
-  | 'profile';
+  | 'profile'
+  | 'share';
