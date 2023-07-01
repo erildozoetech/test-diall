@@ -57,6 +57,7 @@ const HomeLayout: React.FC<IHomeLayoutProps> = ({
           viewabilityConfig={{
             viewAreaCoveragePercentThreshold: 100
           }}
+          showsVerticalScrollIndicator={false}
         />
       }
 
