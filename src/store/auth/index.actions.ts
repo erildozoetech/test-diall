@@ -21,11 +21,9 @@ export const SendVerification = (phone: string, recaptchaVerifier: any, callback
         phone,
         recaptchaVerifier.current
       ).then((verificationId) => {
-        console.log('verificationId ->', verificationId);
         dispatch(setAuthInfo({ phone, verificationId }));
         callback({ status: false, type: 'continue' });
       }).catch((error) => {
-        console.log('Error->>>>', JSON.stringify(error));
         if (error.code !== 'ERR_FIREBASE_RECAPTCHA_CANCEL')
           Alert.alert("Oops!", "There was an error validating your phone number. Please try again.");
         callback({ status: false, type: '' });
